@@ -1,0 +1,24 @@
+<div class="p-5">
+  <h3 mat-dialog-title class="col-12 text-center">Post</h3>
+
+  <div mat-dialog-content>
+    <form class="form-group" [formGroup]="form" errorTailor ngNativeValidate>
+      <div class="mb-2">
+        <mat-form-field class="col-12" appearance="fill">
+          <mat-label>Título</mat-label>
+          <input matInput formControlName="title" placeholder="Digite o título">
+          <mat-error *ngIf="form.invalid">É necessário digitar um título</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-slide-toggle formControlName="completed" color="primary">{{ form.value.completed ? 'Completo' : 'Incompleto' }}</mat-slide-toggle>
+      </div>
+    </form>
+  </div>
+
+  <div mat-dialog-actions class="d-flex justify-content-evenly">
+    <button mat-raised-button color="secondary" class="mb-3" (click)="modalClose()">Cancelar</button>
+    <button mat-raised-button color="primary" class="mb-3" (click)="handleSubmit()">Salvar</button>
+  </div>
+</div>

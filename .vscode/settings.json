@@ -1,0 +1,15 @@
+{
+  "css.validate": false,
+  "scss.validate": false,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
+  "files.associations": {
+    ".stylelintrc": "json",
+    ".firebaserc": "json"
+  },
+  "stylelint.validate": ["scss"],
+  "workbench.iconTheme": "material-icon-theme",
+}

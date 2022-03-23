@@ -1,0 +1,53 @@
+<div
+  class="d-flex mobile-backdrop p-relative bar"
+>
+  <div class="sidebar">
+
+    <div class="m-auto pt-5">
+      <img src="https://material.angular.io/assets/img/angular-material-logo.svg" class="img-item" />
+      Angular Material
+    </div>
+
+    <ul metis-menu class="menu-items list-unstyled">
+      <li class="line" *ngFor="let item of navItens">
+        <a
+          *ngIf="!item.children"
+          class="menu-item"
+          [routerLink]="item.url"
+          [queryParams]="item.queryParams"
+          routerLinkActive="is-active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <i class="{{ item.icon }} fa-fw" *ngIf="item.iconImg === ''"></i>
+          <div class="img-icon" *ngIf="item.iconImg !== ''">
+            <img [src]="item.iconImg" class="img-item" />
+            <img [src]="item.iconImgHover" class="img-item hover" />
+          </div>
+
+          <span>{{ item.name }}</span>
+        </a>
+
+        <a *ngIf="item.children" href="javascript:void(0)" class="menu-item has-arrow">
+          <i class="{{ item.icon }} fa-fw"></i>
+          <span>{{ item.name }}</span>
+        </a>
+
+        <ul class="list-unstyled" *ngIf="item.children">
+          <li *ngFor="let children of item.children">
+            <a
+              class="menu-item"
+              [routerLink]="children.url"
+              [queryParams]="children.queryParams"
+              routerLinkActive="is-active"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
+              <i class="fa-fw"></i>
+              <span>{{ children.name }}</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+</div>
